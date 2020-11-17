@@ -142,3 +142,12 @@ function words (n = 0) {
 alert (words (1));
 alert (words (5));
 alert (words (23));
+
+function sum (a, b) {
+    let sum = 0;
+    for (let i = 0, i < arguments.length; i++) {
+        sum += arguments [i];
+    }
+    return sum;
+}
+let result = sum (1, 3, 7);
