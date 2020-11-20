@@ -40,22 +40,22 @@
 
 // Task 1
 
-let n = 'number';
-let s = 'symbol';
-let str = 'string';
-let b = 'boolean';
-let bi = 'bigint';
-let o = 'object';
-let nu = 'null';
-let u = 'undefined';
-alert (s);
-alert (str);
-alert (b);
-alert (bi);
-alert (o);
-alert (nu);
-alert (u);
-console.log (n, s, str, b, bi, o, nu, u);
+// let n = 'number';
+// let s = 'symbol';
+// let str = 'string';
+// let b = 'boolean';
+// let bi = 'bigint';
+// let o = 'object';
+// let nu = 'null';
+// let u = 'undefined';
+// alert (s);
+// alert (str);
+// alert (b);
+// alert (bi);
+// alert (o);
+// alert (nu);
+// alert (u);
+// console.log (n, s, str, b, bi, o, nu, u);
 
 // Task 2
 
@@ -151,3 +151,38 @@ function sum (a, b) {
     return sum;
 }
 let result = sum (1, 3, 7);
+
+Task 11
+
+function f(x = 0) {
+    if (x = undefined) {
+        return 0;
+    }
+}
+
+let f = (x = 0) => (x = undefined)? return 0 : console.log (x);
+
+Task 12
+
+function sum (a, b) {
+    let summa = 0;
+    for (x in sum) {
+        summa += x;
+    }
+    return summa;
+}
+
+let sum = (a, b) => {
+    let summa = 0;
+    for (x in sum) {
+        summa += x;
+    }
+    return summa;
+}
+
+Task 13
+
+let arr = [1, 2, 56, 28, 90, 5, 6];
+arr.sort ( (a, b) => a - b );
+console.log (arr);
+console.log ( arr.indexOf(6, 0) );
