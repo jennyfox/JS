@@ -80,68 +80,66 @@
 // let result = sum (a, b, c);
 // alert ('Сумма этих чисел равна ' + result);
 
-Task 4 
+// Task 4 
 
 function hello1 () {
     return ('Привет, JavaScript!');
 }
 hello1 ();
 
-Task 5 
+// Task 5 
 
 function hello2 (name = 'гость') {
     alert ('Привет' + ', ' + name);
-
 }
 hello2 ('Василий');
 hello2 ();
 
-Task 6
+// Task 6
 
 function mul (n,m) {
     return n * m;
 }
 mul (3, 6);
 
-Task 7
+// Task 7
 
 function repeat (str = '', n = 2) {
     return (str * 2);
 }
 repeat ('Повтори меня');
 
-Task 8
+// Task 8
 
+// Создайте функцию rgb(a, b, c), которая будет принимать три числовых аргумента и возвращать строку вида «rgb(23,100,134)». 
+// 	  Если аргументы не заданы, считать их равными нулю. Не проверять переменные на тип данных.
 function rgb(a = 0, b = 0, c = 0) {
-    return (a + ', ' + b + ', ' + c);
+    return `rgb(${a}, ${b}, ${c})`;
 }
 rgb (23, 100, 134);
 
-Task 9
+// Task 9
 
 function avg (a, b, c) {
     return ((a + b + c) / 3);
 }
 avg (4, 9, 15);
 
-Task 10 
-    (Я ограничила число до 25, я не знаю, как выразить формулой 
-    "все числа, заканчивающиеся на 2, 3 и 4" и пр.)
+// Task 10 
+// - Напишите функцию words(n), которая в зависимости от переданного в нее целочисленного аргумента n, будет выводить слово «товар» 
+// в нужно форме («12 товаров», но «22 товара»). По умолчанию аргумент n должен иметь значение 0.
 
 function words (n = 0) {
-    if (n = 1 || n = 21) {
+    let ostatok1 = n % 10;
+    let ostatok2 = n % 100;
+    if (ostatok1 === 1 && ostatok2 !== 11) {
         alert (n + ' товар');
-    }
-    if (n >= 2 && n <= 4 || n >= 22 && n <= 24) {
+    } else if (ostatok1 === 2 || ostatok1 === 3 || ostatok1 === 4 && ostatok2 !== 12 || ostatok2 !== 13 || ostatok2 !== 14) {
         alert (n + ' товара');
-    }
-    if (n >= 5 && n <= 20 || n = 25) {
+    } else {
         alert (n + ' товаров');
     }
 }
-alert (words (1));
-alert (words (5));
-alert (words (23));
 
 function sum (a, b) {
     let sum = 0;
@@ -152,17 +150,15 @@ function sum (a, b) {
 }
 let result = sum (1, 3, 7);
 
-Task 11
+// Task 11
 
-function f(x = 0) {
-    if (x = undefined) {
-        return 0;
-    }
+function f() {
+    return (arguments.lengh >= 1) ? 1 : 0
 }
 
-let f = (x = 0) => (x = undefined)? return 0 : console.log (x);
+// let f = (x = 0) => (x = undefined)? return 0 : console.log (x);
 
-Task 12
+// Task 12
 
 function sum (a, b) {
     let summa = 0;
@@ -180,7 +176,7 @@ let sum = (a, b) => {
     return summa;
 }
 
-Task 13
+// Task 13
 
 let arr = [1, 2, 56, 28, 90, 5, 6];
 arr.sort ( (a, b) => a - b );
