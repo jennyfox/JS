@@ -141,6 +141,8 @@ function words (n = 0) {
     }
 }
 
+// Task 11
+
 function sum (a, b) {
     let sum = 0;
     for (let i = 0, i < arguments.length; i++) {
@@ -150,7 +152,8 @@ function sum (a, b) {
 }
 let result = sum (1, 3, 7);
 
-// Task 11
+
+// Task 12
 
 function f() {
     return (arguments.lengh >= 1) ? 1 : 0
@@ -158,7 +161,7 @@ function f() {
 
 // let f = (x = 0) => (x = undefined)? return 0 : console.log (x);
 
-// Task 12
+// Task 13
 
 function sum (a, b) {
     let summa = 0;
@@ -176,9 +179,104 @@ let sum = (a, b) => {
     return summa;
 }
 
-// Task 13
+// Task 14
 
 let arr = [1, 2, 56, 28, 90, 5, 6];
 arr.sort ( (a, b) => a - b );
 console.log (arr);
 console.log ( arr.indexOf(6, 0) );
+
+// Создать массив объектов для юзеров [{name: ‘Ivan’, age: 18}, {name: ‘Petr’, age: 12}, {name: ‘Sidor’, age: 25}, {name: ‘Pavel’, age: 24}, {name: ‘Sasha’, age: 29}]
+// 	  Написать скрипт, который будет на выходе отдавать два массива. Первый с совершеннолетними пользователями, второй с несовершеннолетними.
+// 	  !Использовать метод filter. Полученные на выходе два массива отсортировать (каждый из них в отдельности) 
+//            по старшинству членов (от самого старшего к самому младшему). Расширить предыдущее задание так чтобы из исходного массива удалялись все несовершенолетние пользователи.
+
+let users = [
+    {name: ‘Ivan’, age: 18}, 
+    {name: ‘Petr’, age: 12}, 
+    {name: ‘Sidor’, age: 25}, 
+    {name: ‘Pavel’, age: 24}, 
+    {name: ‘Sasha’, age: 29}
+];
+let teens = users.filter (item => item.age < 18);
+let adults = users.filter (item => item.age >= 18);
+alert (teens);
+alert (adults);
+let SortedAdults = adults.reverse ((a, b) => a - b);
+alert (SortedAdults);
+// let teenInd = users.findIndex (item => item.age < 18);
+// users.splice (teenInd);
+users.pop (...teens);
+alert (users);
+// мб так?
+
+// - Дан массив var arr = [1, 10, 25, 67, 87, 56]. Добавить в конец массива число 4. Вывести полученный массив и в переменную leng сохранить его новую длину.
+//       Из полученного массива извлечь последний элемент. Извлеченный элемент добавить вначало массива. 
+      
+let arr = [1, 10, 25, 67, 87, 56];
+let a = arr.push (4);
+alert (arr);
+let leng = arr1.length; 
+// это же то же самое, что let leng = arr1 ?
+let last = arr.pop ();
+alert (last);
+let b = arr.unshift (last);
+alert (arr);
+
+// - Дан массив var arr1 = [2, 5, 90, 4]. Обьеденить данный массив с массивом из предыдущего задания (с учетом тех изменений, которые вы с ним уже произвели в том задании ) 
+//           и записать результат в переменную arr2. Сами массивы arr и arr1 должны остаться неизмененными. 
+
+let arr = [4, 1, 10, 25, 67, 87, 56];
+let arr1 = [2, 5, 90, 4];
+let arr2 = arr.concat (arr1);
+alert (arr2);
+
+// - В образовавшемся массиве arr2 определить положение числа 90 (ее индекс) и удалить ее из массива. Вместо 90 добавить в массив числа 19, 2, 91.
+
+let i = arr2.indexOf (90);
+arr2.splice (i, 1, 19, 2, 91);
+alert (arr2);
+
+// - В измененном массиве arr2 извлечь последние 4 элемента с конца и записать их в массив arr3. Сам массив arr2 не должен 
+//       измениться (извлеченные из него эелементы должны в нем остаться). Массив arr3 осортировать по возрастанию.
+      
+let newarr = arr2.slice ();
+alert (newarr);
+let arr3 = newarr.splice (-1, 4);
+alert (arr2);
+alert (arr3);
+// почему вместо массива с удаленными элементами он вернул его длину?
+arr3.sort ((a, b) => a - b);
+// соответственно, сортировка не удалась
+alert (arr3);
+
+// - Отсортировать массив arr2 по убыванию. Посчитать сумму его эелементов. (Попробуйте использовать метод reduce в статье про методы есть его описание).
+
+arr2.reverse ((a, b) => a - b);
+alert (arr2);
+let result = arr2.reduce ((sum, item) => sum + item, 0);
+alert (result);
+
+	  
+// - Дан массив пользователей. var users = [
+//  						  {id: 1, name: "Вася", age: 20},
+//   						  {id: 2, name: "Петя", age: 19},
+//   						  {id: 3, name: "Маша", age: 18}
+// 						];
+// 	  Добавить в этот маccив еще одного пользователя {id: 4, name: "Дима", age: 17}. Инвертируйте данный массив и выведите возраст пользователя с именем "Петя".
+	   
+//     - В массиве users посчитайте общий суммарный возраст всех пользователей.
+    
+let users = [
+    {id: 1, name: "Вася", age: 20},
+    {id: 2, name: "Петя", age: 19},
+    {id: 3, name: "Маша", age: 18}
+];
+users.push ({id: 4, name: "Дима", age: 17});
+users.reverse ();
+alert (users);
+let user = users.find (item => item.name == "Петя");
+alert (user.age);
+let result = users.reduce ((sum, item) => sum + item.age, 0);
+alert (result);
+
