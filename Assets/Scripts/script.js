@@ -327,7 +327,24 @@ let users = [
     {id: 12, name: "Денис", age: 20}
 ];
 
-let one = users.map(item => item.age + 1);
+// 1 вариант
+let adultUsers = users.filter(function (adult) {
+    return users.age.some(function(adult) {
+        return age > 17;
+    });
+});
+console.log(adultUsers);
+let usersAfterYear = Object.fronEntries(
+    Object.entries(users).map(([key, value]) => [key, value + 1])
+);
+console.log(usersAfterYear);
+// не подходит, т.к. users - массив, не знаю, как осуществить это с массивами
+
+// 2 вариант
+let one = users.map((item) => {
+    item.age + 1;
+    return item;
+});
 console.log(one);
 let usersAfterYear = [];
 for(let i=0; i < one.length && one.age > 17; i++) {
@@ -336,9 +353,16 @@ for(let i=0; i < one.length && one.age > 17; i++) {
 console.log(usersAfterYear);
 // не работает
 
-let usersAfterYear = users.map(item => item.age + 1); 
+// 3 вариант
+let usersAfterYear = users.map((item) => {
+    item.age + 1;
+    return item;
+}); 
 console.log(usersAfterYear);
-usersAfterYear.filter(item => item.age > 17);
+usersAfterYear.filter((item) => {
+    item.age > 17;
+    return item;
+});
 console.log(usersAfterYear);
 // не работает
 
@@ -385,10 +409,26 @@ let keys = Object.keys(users);
 keys.forEach(key => {
     users[key] = users[key][0].toUpperCase() + users[key].slice(1);
 })
+// списано с консультации, понимания нет
 
 // Посчитать первые 8 чисел Фибоначчи использую рекурсию. Например: fibonachi(n); 
 // (При вызове функции положите n = 8); 
 
+function fib(n) {
+    return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+  }
+//   списано, понимания ноль
 
 // Посчитать с помощью рекурсии факториал числа 10. Например: factorial(n); 
-// (При выозове полжите n = 10); 	
+// (При выозове полжите n = 10); 
+
+function factorial(n) {
+    return (n != 1) ? n * factorial(n - 1) : 1;
+  }
+console.log(factorial(10));  
+// это списано с решебника, понимания нет
+
+function factorial(n) {
+    return n ? n * factorial(n - 1) : 1;
+  }
+//   что означает запись "return n ?"
