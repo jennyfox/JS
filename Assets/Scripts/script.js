@@ -432,3 +432,82 @@ function factorial(n) {
     return n ? n * factorial(n - 1) : 1;
   }
 //   что означает запись "return n ?"
+
+// - Дан объект let user = { name: "Ivan", years: 19, car: "Subaru", 
+// telePhone: "iPhone", city: "Minsk" }. Запишите поле name в переменную 
+// userName, поле year в переменную userName, поле car в переменную userCar, 
+// остальные поля записать в объект userOtherInfo;
+
+let user = { 
+    name: "Ivan", 
+    years: 19, 
+    car: "Subaru", 
+    telePhone: "iPhone", 
+    city: "Minsk" 
+};
+let {name: userName, years: userYears, car: userCar, ...userOtherInfo} = user;
+console.log(userName);
+console.log(userYears);
+console.log(userCar);
+console.log(userOtherInfo);
+
+// - Дан массив let arr = [1, "str", 24, {name: "Ivan"}, 89, undeifined, "10"]. 
+// Используя оператор расширение и соответсвие порядка следования элементов 
+// запишите первые два элемента массива в переменные firstElement, secondElement, 
+// число 89 (четвертый элемент массива) в переменную fifthElement. 
+// Остальные элементы после 89 запишите в массив otherElements;
+
+let arr = [1, "str", 24, {name: "Ivan"}, 89, undeifined, "10"];
+let [firstElement, secondElement, , , fifthElement, ... otherElements] = arr;
+
+// - Используя объект Date представьте текущую дату на момент выполения задания 
+// в формате DD.MM.YYYYY (например 5.12.2020). Расширить задание таким образом 
+// чтобы если день месяца есть число меньше 10 перед ней ставился "0" 
+// (например 05.12.2020);
+
+
+let now = new Date(2020, 11, 5);
+console.log(now);
+let year = now.getFullYear();
+let month = now.getMonth();
+let day = now.getDate();
+let dayNew = day.toString().length === 1 ? '0' + day : day;
+let finalDate = dayNew + '.' + month + '.' + year;
+console.log(finalDate);
+
+// - Дан объект let user = {
+//         name: "Ivan",
+//         age: 19
+//        };
+// Создайте копию объекта использую сериализацию и десериализацию (JSON.stringify(), 
+// JSON.parse());
+
+let user = {
+    name: "Ivan",
+    age: 19
+};
+let userPreCopy = JSON.stringify(user);
+let userCopy = JSON.parse(userPreCopy);
+console.log(userCopy);
+
+// - Напишите функцию func() которая при каждом своем вызове будет возвращать 
+// количество своих вызовов (сколько раз ее вызызвали до этого плюс этот вызов);
+
+
+
+// - Напишите функцию которая будет увеличивать переменную let i = 0, от 0 до 20, 
+// причем переменная будет увеличивать свое значение на единицу каждые 2 секунды. 
+// Когда переменная станет равной 20 прекратить увеличение. Попробуйте реализовать 
+// через setInterval и через рекурснивный setTimeout.
+
+
+
+
+// - Напишите функцию startTimer() которая будет запускать вывод через confirm
+// ("Реклама исчезнет счерез 5 секунд, вы согласны ?"), при нажатии "ДА" выводите 
+// alert("Реклама") через 5 секунд, если нажали "НЕТ", то повторить вопрос 
+// confirm("Реклама исчезнет счерез 5 секунд, вы согласны ?") и так до тех пор, 
+// пока пользовательне нажмет "ДА" и не увидит эту рекламу через alert. 
+
+
+    
