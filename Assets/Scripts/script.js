@@ -382,7 +382,7 @@ let usersAfterYearUniqueAge = usersAfterYear.reduce((a, item) => {
     } else {
         return a;
     }
-}, [])
+}, []);
 
 // Дан объект var users = {
 // 	first_name: "pavel",
@@ -493,6 +493,17 @@ console.log(userCopy);
 // - Напишите функцию func() которая при каждом своем вызове будет возвращать 
 // количество своих вызовов (сколько раз ее вызызвали до этого плюс этот вызов);
 
+function makeCounter() {
+    let currentCount = 1;
+    return function() {
+        return currentCount++;
+    };
+};
+let counter = makeCounter();
+alert(counter());
+alert(counter());
+alert(counter());
+// загуглено и списано
 
 
 // - Напишите функцию которая будет увеличивать переменную let i = 0, от 0 до 20, 
@@ -500,8 +511,26 @@ console.log(userCopy);
 // Когда переменная станет равной 20 прекратить увеличение. Попробуйте реализовать 
 // через setInterval и через рекурснивный setTimeout.
 
+f () {
+    let i = 0;
+    if (i < 20) {
+        i++;
+        alert(i);
+    } 
+};
+let a = setInterval(f, 2000);
+clearInterval(a);
 
 
+let a = setTimeout(f () {
+    let i = 0;
+    if (i < 20) {
+        a = setTimeout(f, 2000);
+        i++;
+        alert(i);
+    }  
+}, 2000);
+clearTimeout(a);
 
 // - Напишите функцию startTimer() которая будет запускать вывод через confirm
 // ("Реклама исчезнет счерез 5 секунд, вы согласны ?"), при нажатии "ДА" выводите 
@@ -509,5 +538,11 @@ console.log(userCopy);
 // confirm("Реклама исчезнет счерез 5 секунд, вы согласны ?") и так до тех пор, 
 // пока пользовательне нажмет "ДА" и не увидит эту рекламу через alert. 
 
-
+let b = startTimer() {
+    if (confirm ("Реклама исчезнет счерез 5 секунд, вы согласны ?") === true) {
+        let a = setTimeout(() => alert('Реклама'), 5000);
+    } else {
+        return b;
+    }
+};
     
